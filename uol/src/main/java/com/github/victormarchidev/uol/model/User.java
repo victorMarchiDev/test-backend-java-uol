@@ -1,11 +1,20 @@
 package com.github.victormarchidev.uol.model;
 
+import jakarta.persistence.*;
+
+
+@Entity
+@Table(name = "users_tb")
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String nome;
     private String email;
     private String telefone;
     private String codinome;
     private String grupo;
+
 
 
     public User(){}
@@ -56,5 +65,13 @@ public class User {
 
     public void setGrupo(String grupo) {
         this.grupo = grupo;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
     }
 }

@@ -12,13 +12,17 @@
     <label for="email">Email:</label>
     <input type="email" id="email" th:field="*{email}" /><br><br>
 
-    <label for="email">Telefone:</label>
-    <input type="telefone" id="telefone" th:field="*{telefone}" /><br><br>
+    <label for="telefone">Telefone:</label>
+    <input type="text" id="telefone" th:field="*{telefone}" /><br><br>
 
     <fieldset>
-        <legend>Quero ser do grupo:</legend>
-        <label><input type="radio" name="manutencao" value="ving" required /> Vingadores</label>
-        <label><input type="radio" name="manutencao" value="ldj" required /> Liga da Justiça</label>
+        <legend>Quero ser do grupo: </legend>
+        <label>
+            <input type="radio" th:field="*{grupo}" value="Vingadores" /> Vingadores
+        </label><br>
+        <label>
+            <input type="radio" th:field="*{grupo}" value="Liga da Justiça" /> Liga da Justiça
+        </label>
     </fieldset>
 
 
