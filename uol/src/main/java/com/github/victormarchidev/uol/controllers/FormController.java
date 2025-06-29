@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.List;
+
 @Controller
 public class FormController {
 
@@ -25,6 +27,13 @@ public class FormController {
     public String exibirForm(Model model){
         model.addAttribute("usuario", new User());
         return "formulario";
+    }
+
+    @GetMapping("/usuarios")
+    public String listarUsuarios(Model model){
+        List<User> usuarios = repository.findAll();
+        model.addAttribute("usuarios", usuarios);
+        return "usuarios";
     }
 
     @PostMapping("/formulario")
