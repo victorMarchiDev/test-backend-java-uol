@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -34,6 +35,32 @@ public class FormController {
         List<User> usuarios = repository.findAll();
         model.addAttribute("usuarios", usuarios);
         return "usuarios";
+    }
+
+    @GetMapping("/vingadores")
+    public String listarVingadores(Model model){
+        List<User> usuarios = repository.findAll();
+        List<User> vingadores = new ArrayList<>();
+        for(User u : usuarios){
+            if(u.getGrupo().equalsIgnoreCase("Vingadores")){
+                vingadores.add(u);
+            }
+        }
+        model.addAttribute("vingadores", vingadores);
+        return "vingadores";
+    }
+
+    @GetMapping("/ligadajustica")
+    public String listarLigaDaJustica(Model model){
+        List<User> usuarios = repository.findAll();
+        List<User> ligadajustica = new ArrayList<>();
+        for(User u : usuarios){
+            if(u.getGrupo().equalsIgnoreCase("Liga da Justiça")){
+                ligadajustica.add(u);
+            }
+        }
+        model.addAttribute("ligadajustica", ligadajustica);
+        return "ligadajustica";
     }
 
     @PostMapping("/formulario")

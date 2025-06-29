@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Usuários Cadastrados</title>
+    <style>
+        table {
+            width: 70%;
+            margin: auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #aaa;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #ddd;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+<h1>Liga da Justiça</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Grupo</th>
+        <th>Codinome</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="usuario : ${ligadajustica}">
+        <td th:text="${usuario.id}">1</td>
+        <td th:text="${usuario.nome}">Nome</td>
+        <td th:text="${usuario.email}">Email</td>
+        <td th:text="${usuario.grupo}">Grupo</td>
+        <td th:text="${usuario.codinome}">Codinome</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
